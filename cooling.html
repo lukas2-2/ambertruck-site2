@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Система охлаждения Ambertruck JM93 — запчасти в Москве</title>
+<meta content="Система охлаждения Ambertruck JM93: радиаторы, термостат, патрубки, помпа. Наличие и цены. Москва, доставка по РФ." name="description"/>
+<style>
+    :root {
+      --bg:#f5f5f5;
+      --card:#ffffff;
+      --text:#222;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --black:#000;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px;}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line);}
+    .header-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;}
+    .brand{display:flex;flex-direction:column;gap:2px;}
+    .brand b{font-size:16px;letter-spacing:.2px}
+    .brand span{font-size:12px;color:var(--muted)}
+    .header-actions{display:flex;align-items:center;gap:10px;}
+    .btn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;font-weight:600;cursor:pointer}
+    .btn:hover{border-color:#cfd5dd}
+    .btn-dark{background:#000;color:#fff;border-color:#000;}
+    .btn-dark:hover{opacity:.92}
+    .cart-btn{display:flex;align-items:center;gap:8px;}
+    .badge{min-width:26px;height:22px;padding:0 8px;border-radius:999px;background:#111;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+    main{padding:18px 0 40px}
+    h1{margin:10px 0 6px;font-size:22px}
+    .sub{color:var(--muted);font-size:13px}
+    .panel{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:12px;}
+    .filters{display:grid;grid-template-columns: 1.4fr .6fr .6fr .7fr auto;gap:10px;align-items:center;}
+    .field{display:flex;flex-direction:column;gap:6px}
+    label{font-size:12px;color:var(--muted)}
+    input, select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;font-size:14px;background:#fff;outline:none}
+    input:focus, select:focus{border-color:#b8bec7}
+    .hint{font-size:12px;color:var(--muted);margin-top:10px}
+    .table-wrap{margin-top:12px;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);}
+    table{width:100%;border-collapse:separate;border-spacing:0}
+    thead th{text-align:left;font-size:12px;color:var(--muted);padding:12px;border-bottom:1px solid var(--line);background:#fafafa;}
+    tbody td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle}
+    tbody tr:last-child td{border-bottom:none}
+    .col-price{white-space:nowrap;font-weight:700}
+    .buy-btn{border:1px solid #000;background:#000;color:#fff;border-radius:12px;padding:10px 12px;font-weight:700;cursor:pointer}
+    .buy-btn:hover{opacity:.92}
+    .empty{padding:20px;color:var(--muted);text-align:center}
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:50}
+    .modal{width:min(720px, 100%);background:#fff;border-radius:18px 18px 0 0;max-height:85vh;overflow:auto;box-shadow:0 -20px 60px rgba(0,0,0,.25);}
+    .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff}
+    .modal-head h2{margin:0;font-size:16px}
+    .cart-list{padding:10px 16px}
+    .cart-item{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+    .cart-item:last-child{border-bottom:none}
+    .cart-item b{display:block;font-size:14px}
+    .cart-item small{color:var(--muted)}
+    .qty-controls{display:flex;align-items:center;gap:8px;white-space:nowrap}
+    .icon-btn{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:900}
+    .icon-btn:hover{border-color:#cfd5dd}
+    .total{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-top:1px solid var(--line);background:#fafafa}
+    footer{padding:18px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+    /* Mobile */
+    @media (max-width: 860px){
+      .filters{grid-template-columns:1fr 1fr;}
+    }
+    @media (max-width: 768px){
+      .header-row{flex-wrap:wrap}
+      .filters{grid-template-columns:1fr;}
+      table thead{display:none}
+      table, tbody, tr, td{display:block;width:100%}
+      tbody tr{border-bottom:1px solid var(--line);padding:8px 12px}
+      tbody tr:last-child{border-bottom:none}
+      tbody td{border:none;padding:8px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+      tbody td::before{content:attr(data-label);color:var(--muted);font-size:12px;flex:0 0 auto}
+      .col-actions{justify-content:flex-end}
+      .modal-backdrop{align-items:flex-end}
+    }
+  </style>
+<meta content="PASTE_YANDEX_VERIFICATION_CODE" name="yandex-verification"/><link href="https://lukas2-2.github.io/ambertruck-site3/cooling.html" rel="canonical"/><link href="cart.css" rel="stylesheet"/><script src="config.js"></script><meta content="index,follow" name="robots"/><meta content="Система охлаждения Ambertruck JM93 — запчасти в Москве" property="og:title"/><meta content="Система охлаждения Ambertruck JM93: радиаторы, термостат, патрубки, помпа. Наличие и цены. Москва, доставка по РФ." property="og:description"/><meta content="website" property="og:type"/><meta content="https://lukas2-2.github.io/ambertruck-site3/cooling.html" property="og:url"/><script defer="" src="./seo.js"></script><script>/* Yandex.Metrika: replace 00000000 with your counter id */</script></head>
+<body><div data-breadcrumb="Главная|Охлаждение" style="display:none"></div>
+<header>
+<div class="container">
+<div class="header-row">
+<a class="brand" href="index.html" title="На главную">
+<b>AmberTruck JM93</b>
+<span>Запчасти • Категория: Система охлаждения</span>
+</a>
+<div class="header-actions">
+<a class="btn" href="index.html">← Назад</a>
+<a class="btn btn-dark cart-btn" href="cart.html">Корзина <span class="badge" id="cartCount">0</span></a>
+</div>
+</div>
+</div>
+</header>
+<main>
+<div class="container">
+<h1>Запчасти системы охлаждения</h1>
+<div class="sub">Товаров: <b id="totalItems">62</b> • Обновлено: 2026-02-27 23:34</div>
+<div class="panel">
+<div class="filters">
+<div class="field">
+<label for="q">Поиск по названию или артикулу</label>
+<input autocomplete="off" id="q" placeholder="Например: прокладка, датчик, CN3..." type="search"/>
+</div>
+<div class="field">
+<label for="minP">Цена от</label>
+<input id="minP" inputmode="numeric" placeholder="0"/>
+</div>
+<div class="field">
+<label for="maxP">Цена до</label>
+<input id="maxP" inputmode="numeric" placeholder="999999"/>
+</div>
+<div class="field">
+<label for="sort">Сортировка</label>
+<select id="sort">
+<option value="default">Как в списке</option>
+<option value="price_asc">Цена ↑</option>
+<option value="price_desc">Цена ↓</option>
+<option value="name_asc">Название А–Я</option>
+<option value="name_desc">Название Я–А</option>
+</select>
+</div>
+<button class="btn" id="reset" title="Сбросить фильтры" type="button">Сбросить</button>
+</div>
+<div class="hint">Совет: можно вводить часть артикула — фильтрация срабатывает сразу.</div>
+</div>
+<div class="table-wrap">
+<table id="itemsTable">
+<thead>
+<tr>
+<th style="width:55%">Название</th>
+<th style="width:18%">Артикул</th>
+<th style="width:15%">Цена</th>
+<th style="width:12%"></th>
+</tr>
+</thead>
+<tbody id="tbody">
+<tr class="item-row" data-name="Датчик температуры охлаждающей жидкости" data-price="2310.00" data-sku="1306360ABC">
+<td class="col-name" data-label="Название">Датчик температуры охлаждающей жидкости</td>
+<td class="col-sku" data-label="Артикул">1306360ABC</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="2310.00">2 310 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Датчик температуры охлаждающей жидкости" data-price="2310.00" data-sku="1306360ABC" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Насос водяной" data-price="21210.00" data-sku="CN3-8A558-AF">
+<td class="col-name" data-label="Название">Насос водяной</td>
+<td class="col-sku" data-label="Артикул">CN3-8A558-AF</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="21210.00">21 210 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Насос водяной" data-price="21210.00" data-sku="CN3-8A558-AF" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Прокладка водяного насоса" data-price="630.00" data-sku="CN3-8K540-AC">
+<td class="col-name" data-label="Название">Прокладка водяного насоса</td>
+<td class="col-sku" data-label="Артикул">CN3-8K540-AC</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="630.00">630 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Прокладка водяного насоса" data-price="630.00" data-sku="CN3-8K540-AC" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Комперссор кондиционера" data-price="60270.00" data-sku="KN3-19D629-AA">
+<td class="col-name" data-label="Название">Комперссор кондиционера</td>
+<td class="col-sku" data-label="Артикул">KN3-19D629-AA</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="60270.00">60 270 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Комперссор кондиционера" data-price="60270.00" data-sku="KN3-19D629-AA" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Вентилятор" data-price="34230.00" data-sku="KN3-8C617-BA">
+<td class="col-name" data-label="Название">Вентилятор</td>
+<td class="col-sku" data-label="Артикул">KN3-8C617-BA</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="34230.00">34 230 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Вентилятор" data-price="34230.00" data-sku="KN3-8C617-BA" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Расширительный бачок радиатора" data-price="1890.00" data-sku="LN6-8K218-AA">
+<td class="col-name" data-label="Название">Расширительный бачок радиатора</td>
+<td class="col-sku" data-label="Артикул">LN6-8K218-AA</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="1890.00">1 890 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Расширительный бачок радиатора" data-price="1890.00" data-sku="LN6-8K218-AA" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Интеркулер в сборе" data-price="46830.00" data-sku="LN6-9L440-AA">
+<td class="col-name" data-label="Название">Интеркулер в сборе</td>
+<td class="col-sku" data-label="Артикул">LN6-9L440-AA</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="46830.00">46 830 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Интеркулер в сборе" data-price="46830.00" data-sku="LN6-9L440-AA" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Патрубок радиатора обратный" data-price="3990.00" data-sku="MN6-8B273-AA">
+<td class="col-name" data-label="Название">Патрубок радиатора обратный</td>
+<td class="col-sku" data-label="Артикул">MN6-8B273-AA</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="3990.00">3 990 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Патрубок радиатора обратный" data-price="3990.00" data-sku="MN6-8B273-AA" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Патрубок радиатора впускной" data-price="2730.00" data-sku="MN6-8B274-AB">
+<td class="col-name" data-label="Название">Патрубок радиатора впускной</td>
+<td class="col-sku" data-label="Артикул">MN6-8B274-AB</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="2730.00">2 730 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Патрубок радиатора впускной" data-price="2730.00" data-sku="MN6-8B274-AB" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Радиатор" data-price="40530.00" data-sku="MN6-8C342-CA">
+<td class="col-name" data-label="Название">Радиатор</td>
+<td class="col-sku" data-label="Артикул">MN6-8C342-CA</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="40530.00">40 530 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Радиатор" data-price="40530.00" data-sku="MN6-8C342-CA" type="button">В корзину</button>
+</td>
+</tr>
+<tr class="item-row" data-name="Вентилятор" data-price="30870.00" data-sku="NF100K5DDA02 000">
+<td class="col-name" data-label="Название">Вентилятор</td>
+<td class="col-sku" data-label="Артикул">NF100K5DDA02 000</td>
+<td class="col-price" data-label="Цена"><span class="price" data-price="30870.00">30 870 ₽</span></td>
+<td class="col-actions" data-label="Действие">
+<button class="buy-btn" data-name="Вентилятор" data-price="30870.00" data-sku="NF100K5DDA02 000" type="button">В корзину</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="empty" id="empty" style="display:none;">Ничего не найдено. Попробуй изменить фильтры.</div>
+</div>
+</div>
+</main>
+
+<!-- Cart Modal -->
+<div aria-hidden="true" class="modal-backdrop" id="cartBackdrop">
+<div aria-label="Корзина" aria-modal="true" class="modal" role="dialog">
+<div class="modal-head">
+<h2>Корзина</h2>
+<button class="btn" id="closeCart" type="button">Закрыть</button>
+</div>
+<div class="cart-list" id="cartList"></div>
+<div class="total">
+<div>Итого: <b id="cartTotal">0 ₽</b></div>
+<button class="btn" id="clearCart" type="button">Очистить</button>
+</div>
+</div>
+</div>
+<script>
+(function(){
+  const tbodyEl = document.getElementById("tbody") || document.querySelector("#itemsTable tbody");
+  if (!tbodyEl) return;
+
+  const q = document.getElementById("q");
+  const minP = document.getElementById("minP");
+  const maxP = document.getElementById("maxP");
+  const sort = document.getElementById("sort");
+  const reset = document.getElementById("reset");
+  const emptyEl = document.getElementById("empty");
+  const totalItemsEl = document.getElementById("totalItems");
+
+  const originalRows = Array.from(tbodyEl.querySelectorAll("tr"));
+  const getPrice = (row) => {
+    const v = row.dataset.price || row.getAttribute("data-price") || "";
+    const s = String(v).replace(/\s+/g,"").replace("₽","").replace(",",".");
+    const n = Number(s);
+    return Number.isFinite(n) ? n : 0;
+  };
+
+  function applyFilter(){
+    const term = (q?.value || "").trim().toLowerCase();
+    const min = Number((minP?.value || "").replace(",", ".")) || 0;
+    const maxRaw = (maxP?.value || "").trim();
+    const max = maxRaw ? (Number(maxRaw.replace(",", ".")) || Infinity) : Infinity;
+
+    let shown = 0;
+    for (const row of originalRows){
+      const name = (row.dataset.name || "").toLowerCase();
+      const sku = (row.dataset.sku || "").toLowerCase();
+      const price = getPrice(row);
+
+      const okTerm = !term || name.includes(term) || sku.includes(term);
+      const okPrice = price >= min && price <= max;
+
+      const visible = okTerm && okPrice;
+      row.style.display = visible ? "" : "none";
+      if (visible) shown++;
+    }
+
+    if (totalItemsEl) totalItemsEl.textContent = String(shown);
+    if (emptyEl) emptyEl.style.display = shown ? "none" : "block";
+  }
+
+  function applySort(){
+    const mode = sort?.value || "none";
+    const rows = originalRows.slice();
+
+    const visible = rows.filter(r => r.style.display !== "none");
+    const hidden = rows.filter(r => r.style.display === "none");
+
+    if (mode === "price-asc"){
+      visible.sort((a,b)=>getPrice(a)-getPrice(b));
+    } else if (mode === "price-desc"){
+      visible.sort((a,b)=>getPrice(b)-getPrice(a));
+    } else if (mode === "name-asc"){
+      visible.sort((a,b)=>(a.dataset.name||"").localeCompare(b.dataset.name||"", "ru"));
+    } else if (mode === "name-desc"){
+      visible.sort((a,b)=>(b.dataset.name||"").localeCompare(a.dataset.name||"", "ru"));
+    } else {
+      // none: restore original order
+      tbodyEl.innerHTML = "";
+      originalRows.forEach(r => tbodyEl.appendChild(r));
+      return;
+    }
+
+    tbodyEl.innerHTML = "";
+    visible.forEach(r => tbodyEl.appendChild(r));
+    hidden.forEach(r => tbodyEl.appendChild(r));
+  }
+
+  function resetAll(){
+    if (q) q.value = "";
+    if (minP) minP.value = "";
+    if (maxP) maxP.value = "";
+    if (sort) sort.value = "none";
+    originalRows.forEach(r => r.style.display = "");
+    applyFilter();
+    applySort();
+  }
+
+  q?.addEventListener("input", applyFilter);
+  minP?.addEventListener("input", applyFilter);
+  maxP?.addEventListener("input", applyFilter);
+  sort?.addEventListener("change", applySort);
+  reset?.addEventListener("click", resetAll);
+
+  // init
+  applyFilter();
+})();
+</script>
+<script src="cart.js"></script>
+
+<footer class="site-footer" itemscope="" itemtype="https://schema.org/Organization">
+<div class="footer-inner">
+<div class="footer-col">
+<div class="footer-title" itemprop="name">Ambertruck JM93 — Запчасти</div>
+<div class="footer-text">Оригинальные запчасти. Москва • Доставка по РФ.</div>
+<div class="footer-text"><strong>Телефон:</strong> <a href="tel:+79259389611" itemprop="telephone">+7 925 938‑96‑11</a></div>
+<div class="footer-text"><strong>Режим:</strong> Пн–Сб 09:00–18:00</div>
+<div class="footer-text" itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress">
+<span itemprop="addressLocality">Москва</span>, <span itemprop="addressCountry">RU</span>
+</div>
+</div>
+<div class="footer-col">
+<div class="footer-title">Покупателям</div>
+<a class="footer-link" href="./delivery.html">Доставка и оплата</a>
+<a class="footer-link" href="./contacts.html">Контакты</a>
+<a class="footer-link" href="./privacy.html">Политика</a>
+<a class="footer-link" href="./zapchasti-ambertruck-jm93.html">Запчасти JM93 (SEO)</a>
+</div>
+<div class="footer-col">
+<div class="footer-title">Каталог</div>
+<a class="footer-link" href="./engine.html">Двигатель</a>
+<a class="footer-link" href="./transmission.html">Трансмиссия</a>
+<a class="footer-link" href="./electric.html">Электрика</a>
+<a class="footer-link" href="./cooling.html">Охлаждение</a>
+<a class="footer-link" href="./fuel.html">Топливная система</a>
+<a class="footer-link" href="./brakes.html">Тормозная система</a>
+<a class="footer-link" href="./body.html">Кузовные элементы</a>
+<a class="footer-link" href="./consumables.html">Расходники</a>
+</div>
+</div>
+<div class="footer-bottom">© 2026 Ambertruck JM93</div>
+</footer>
+</body>
+</html>

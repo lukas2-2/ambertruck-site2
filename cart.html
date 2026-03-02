@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Корзина — оформление заказа Ambertruck JM93</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f5f5f5;
+}
+
+header{
+    background:#111;
+    color:white;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header a{
+    color:white;
+    text-decoration:none;
+}
+
+main{
+    max-width:1000px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+}
+
+button{
+    padding:6px 12px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.remove-btn{
+    background:#d9534f;
+    color:white;
+}
+
+.clear-btn{
+    background:#777;
+    color:white;
+}
+
+.checkout-btn{
+    background:#000;
+    color:white;
+    padding:10px 18px;
+}
+
+.total{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+    text-align:right;
+}
+</style>
+<meta content="Оформление заказа на запчасти Ambertruck JM93: укажите телефон, получите подтверждение и сроки доставки." name="description"/><meta content="PASTE_YANDEX_VERIFICATION_CODE" name="yandex-verification"/><link href="https://lukas2-2.github.io/ambertruck-site3/cart.html" rel="canonical"/><link href="cart.css" rel="stylesheet"/><script src="config.js"></script><meta content="index,follow" name="robots"/><meta content="Корзина — оформление заказа Ambertruck JM93" property="og:title"/><meta content="Оформление заказа на запчасти Ambertruck JM93: укажите телефон, получите подтверждение и сроки доставки." property="og:description"/><meta content="website" property="og:type"/><meta content="https://lukas2-2.github.io/ambertruck-site3/cart.html" property="og:url"/><script defer="" src="./seo.js"></script><script>/* Yandex.Metrika: replace 00000000 with your counter id */</script></head>
+<body class="page-cart"><div data-breadcrumb="Главная|Корзина" style="display:none"></div>
+<header>
+<a href="index.html">← На главную</a>
+</header>
+<main>
+<h2>Корзина</h2>
+<table id="cart-table">
+<thead>
+<tr>
+<th>Название</th>
+<th>Артикул</th>
+<th>Цена</th>
+<th>Кол-во</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<div class="total">
+Итого: <span id="total">0</span> ₽
+</div>
+<br/>
+<button class="clear-btn" onclick="clearCart()">Очистить корзину</button>
+<button class="checkout-btn" onclick="checkout()">Оформить заказ</button>
+</main>
+<section style="max-width:900px;margin:20px auto;padding:0 16px;">
+<div style="background:#fff;border-radius:12px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.08);">
+<h2 style="margin:0 0 10px;">Оформить заказ</h2>
+<p style="margin:0 0 12px;color:#555;">Укажи телефон — заказ отправим в Telegram и свяжемся для подтверждения.</p>
+<div style="display:grid;gap:10px;">
+<input id="order-phone" inputmode="tel" placeholder="Телефон (обязательно)" style="padding:12px;border:1px solid #ddd;border-radius:10px;font-size:16px;"/>
+<input id="order-comment" placeholder="Комментарий (необязательно)" style="padding:12px;border:1px solid #ddd;border-radius:10px;font-size:16px;"/>
+<button id="order-send" style="padding:12px 14px;border:0;border-radius:10px;background:#111;color:#fff;font-weight:700;font-size:16px;cursor:pointer;">Отправить заказ</button>
+<div id="order-status" style="font-size:13px;color:#666;"></div>
+</div>
+</div>
+</section>
+<script>
+function renderCart(){
+    let cart = JSON.parse(localStorage.getItem("ambertruck_cart")) || [];
+    let tbody = document.querySelector("#cart-table tbody");
+    let total = 0;
+
+    tbody.innerHTML = "";
+
+    cart.forEach((item, index) => {
+        let row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.sku}</td>
+            <td>${item.price.toLocaleString()} ₽</td>
+            <td>${item.qty}</td>
+            <td><button class="remove-btn" onclick="removeItem(${index})">Удалить</button></td>
+        `;
+
+        tbody.appendChild(row);
+        total += item.price * item.qty;
+    });
+
+    document.getElementById("total").textContent = total.toLocaleString();
+}
+
+function removeItem(index){
+    let cart = JSON.parse(localStorage.getItem("ambertruck_cart")) || [];
+    cart.splice(index,1);
+    localStorage.setItem("ambertruck_cart", JSON.stringify(cart));
+    renderCart();
+}
+
+function clearCart(){
+    localStorage.removeItem("ambertruck_cart");
+    renderCart();
+}
+
+function checkout(){
+    let cart = JSON.parse(localStorage.getItem("ambertruck_cart")) || [];
+    if(cart.length === 0){
+        alert("Корзина пустая");
+        return;
+    }
+
+    alert("Заказ оформлен (демо режим)");
+}
+
+renderCart();
+</script>
+
+<script src="cart.js">
+
+function buildOrderPayload(){
+  let cart = JSON.parse(localStorage.getItem("ambertruck_cart")) || [];
+  const phone = document.getElementById("order-phone")?.value.trim();
+  const comment = document.getElementById("order-comment")?.value.trim();
+  let total = 0;
+  const items = cart.map(it => {
+    const qty = Number(it.qty)||1;
+    const price = Number(it.price)||0;
+    const sum = qty*price;
+    total += sum;
+    return { name: it.name, code: (it.sku||""), qty, price, sum };
+  });
+  return {
+    phone, comment,
+    city: (window.SITE_CONFIG?.SHOP_CITY)||"Москва",
+    total, items
+  };
+}
+
+async function sendOrder(){
+  const status = document.getElementById("order-status");
+  const payload = buildOrderPayload();
+  if(!payload.phone || payload.phone.length < 6){
+    alert("Укажи телефон для связи.");
+    return;
+  }
+  if(!payload.items || payload.items.length===0){
+    alert("Корзина пустая.");
+    return;
+  }
+
+  const endpoint = (window.SITE_CONFIG?.TELEGRAM_ENDPOINT||"").trim();
+  if(endpoint){
+    status.textContent = "Отправляем заказ…";
+    try{
+      const res = await fetch(endpoint, {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify(payload)
+      });
+      if(!res.ok) throw new Error("bad status");
+      status.textContent = "Заказ отправлен ✅";
+      alert("Заказ отправлен! Мы свяжемся с вами.");
+      localStorage.setItem("ambertruck_cart", JSON.stringify([]));
+      renderCart();
+      return;
+    }catch(e){
+      console.error(e);
+      status.textContent = "Не удалось отправить через Worker. Открою Telegram…";
+    }
+  }
+
+  // fallback — открыть Telegram чат
+  const user = (window.SITE_CONFIG?.TELEGRAM_USERNAME||"yourtelegram").replace("@","");
+  let text = `Заказ с сайта AMBERTRUCK JM93%0AТелефон: ${encodeURIComponent(payload.phone)}`;
+  if(payload.comment) text += `%0AКомментарий: ${encodeURIComponent(payload.comment)}`;
+  text += `%0A%0AСостав заказа:`;
+  payload.items.forEach((it,i)=>{
+    text += `%0A${i+1}) ${encodeURIComponent(it.name)} (код ${encodeURIComponent(it.code)}) • ${it.qty} шт • ${it.sum} ₽`;
+  });
+  text += `%0A%0AИтого: ${payload.total} ₽`;
+  window.open(`https://t.me/${encodeURIComponent(user)}?text=${text}`, "_blank");
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  const btn = document.getElementById("order-send");
+  if(btn) btn.addEventListener("click", sendOrder);
+});
+</script>
+<footer class="site-footer" itemscope="" itemtype="https://schema.org/Organization">
+<div class="footer-inner">
+<div class="footer-col">
+<div class="footer-title" itemprop="name">Ambertruck JM93 — Запчасти</div>
+<div class="footer-text">Оригинальные запчасти. Москва • Доставка по РФ.</div>
+<div class="footer-text"><strong>Телефон:</strong> <a href="tel:+79259389611" itemprop="telephone">+7 925 938‑96‑11</a></div>
+<div class="footer-text"><strong>Режим:</strong> Пн–Сб 09:00–18:00</div>
+<div class="footer-text" itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress">
+<span itemprop="addressLocality">Москва</span>, <span itemprop="addressCountry">RU</span>
+</div>
+</div>
+<div class="footer-col">
+<div class="footer-title">Покупателям</div>
+<a class="footer-link" href="./delivery.html">Доставка и оплата</a>
+<a class="footer-link" href="./contacts.html">Контакты</a>
+<a class="footer-link" href="./privacy.html">Политика</a>
+<a class="footer-link" href="./zapchasti-ambertruck-jm93.html">Запчасти JM93 (SEO)</a>
+</div>
+<div class="footer-col">
+<div class="footer-title">Каталог</div>
+<a class="footer-link" href="./engine.html">Двигатель</a>
+<a class="footer-link" href="./transmission.html">Трансмиссия</a>
+<a class="footer-link" href="./electric.html">Электрика</a>
+<a class="footer-link" href="./cooling.html">Охлаждение</a>
+<a class="footer-link" href="./fuel.html">Топливная система</a>
+<a class="footer-link" href="./brakes.html">Тормозная система</a>
+<a class="footer-link" href="./body.html">Кузовные элементы</a>
+<a class="footer-link" href="./consumables.html">Расходники</a>
+</div>
+</div>
+<div class="footer-bottom">© 2026 Ambertruck JM93</div>
+</footer>
+</body>
+</html>

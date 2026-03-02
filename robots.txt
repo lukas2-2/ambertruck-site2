@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Host: https://lukas2-2.github.io
+Sitemap: https://lukas2-2.github.io/ambertruck-site3/sitemap.xml
